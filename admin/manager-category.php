@@ -57,7 +57,7 @@
                         }
                         else
                         {
-                          echo "<img src='".SITEURL."/media/category/$image' width='100px'>";
+                          echo "<img src='".SITEURL."/media/$image' width='100px'>";
                         }
                       ?>
                     </td>

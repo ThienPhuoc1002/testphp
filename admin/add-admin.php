@@ -54,11 +54,10 @@
       name='$username'
     ";
 
-    $res = mysqli_query($conn, $sql) or die(mysqli_error());
+    $res = mysqli_query($conn, $sql);
 
     if($res==TRUE)
     {
-      echo "Date inserted";
       $_SESSION['add'] = "<div class='success'>Admin Added Successfully</div>";
       header('location:'.SITEURL.'admin/manager-admin.php');
     }
