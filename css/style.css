@@ -1,131 +1,226 @@
 *{
-  margin: 0;
-  padding: 0;
+  margin: 0 0;
+  padding: 0 0;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.wrapper{
-  padding: 1%;
-  width: 80%;
-  margin: 0 auto;
+.container{
+    width: 80%;
+    margin: 0% auto;
+    padding: 1%;
+}
+
+.img-responsive{
+  width: 100%;
+}
+
+.img-responsive{
+  border-radius: 15px;
 }
 
 .text-center{
   text-align: center;
 }
 
+.text-right{
+  text-align: right;
+}
+
+.text-white{
+  color: white;
+}
+
 .clearfix{
-  float: none;
   clear: both;
+  float: none;
 }
 
-.tbl-full{
-  width: 100%;
+a{
+  color: rgb(236, 77, 77);
+  text-decoration: none;
 }
 
-.tbl-30{
-  width: 30%;
+a:hover{
+  color: rgb(240, 51, 51);
+  text-decoration: none;
 }
 
-table tr th{
-  border-bottom: 1px solid black;
+.btn{
   padding: 1%;
-  text-align: left;
-}
-
-table tr td{
-  text-align: left;
-  padding: 1%;
+  border: none;
+  font-size: 1rem;
+  border-radius: 5px;
 }
 
 .btn-primary{
-  background-color: #1e90ff;
-  padding: 1%;
+  background-color: rgb(236, 77, 77);
   color: white;
-  text-decoration: none;
-  font-weight: bold;
+  cursor: pointer;
 }
 
 .btn-primary:hover{
-  background-color: #3742fa;
+  color: white;
+  background-color: rgb(240, 51, 51);
 }
 
-.btn-secondary{
-  background-color: #7bed9f;
-  padding: 1%;
+h2{
   color: black;
-  text-decoration: none;
-  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 2%;
 }
 
-.btn-secondary:hover{
-  background-color: #2ed573;
+h3{
+  font-size: 1,5rem;
 }
 
-.btn-danger{
-  background-color: #ff6b81;
-  padding: 1%;
-  color: black;
-  text-decoration: none;
-  font-weight: bold;
+.float-container{
+  position: relative;
 }
 
-.btn-danger:hover{
-  background-color: #ff4757;
+.float-text{
+  position: absolute;
+  bottom: 40px;
+  left: 40%;
 }
 
-.success{
-  color: #2ed573;
-}
-
-.error{
-  color: #ff4757;
-}
-
-/*menu*/
-.menu{
-  border-bottom: 1px solid gray;
-}
-.menu ul{
-  list-style-type: none;
-}
-.menu ul li{
-  display: inline;
-  padding: 1%;
-}
-.menu ul li a{
-  text-decoration: none;
-  font-weight: bold;
-  color: orange;
-}
-.menu ul li a:hover{
-  color: red;
-}
-
-/*main-content*/
-.main-content{
-  margin: 3% 0;
-  background-color: aliceblue;
-}
-
-.col-4{
-  width: 17%;
-  background-color: white;
-  margin: 1%;
-  padding: 2%;
+.logo{
+  width: 10%;
   float: left;
 }
 
-/*footer*/
-.footer{
-  background-color: rgb(221, 85, 17);
-  color: white;
+.menu{
+  line-height: 80px;
 }
 
-/*login*/
-.login{
-  border: 1px solid black;
-  width: 30%;
-  margin: 5% auto;
-  padding: 10px;
+.menu ul{
+  list-style-type: none;
+}
+
+.menu ul li{
+  display: inline;
+  padding: 1%;
+  font-weight: bold;
+}
+
+.food-search{
+  background-image: url(../media/backgroundsearch.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 7% 0;
+}
+
+.food-search input[type="search"]{
+  width: 50%;
+  padding: 1%;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.categories{
+  padding: 4% 0;
+}
+
+.box-3{
+  width: 28%;
+  float: left;
+  margin: 2%;
+}
+.food-menu{
+  background-color: aliceblue;
+  padding: 4% 0;
+}
+
+.food-menu-box{
+  width: 43%;
+  margin: 1%;
+  padding: 2%;
+  float: left;
+  background-color: white;
+  border-radius: 15px;
+}
+
+.food-menu-img{
+  width: 20%;
+  float: left;
+}
+
+.food-menu-desc{
+  width: 70%;
+  float: left;
+  margin-left: 8%;
+}
+
+.food-price{
+  font-size: 1,2rem;
+  margin: 2% 0;
+}
+
+.food-detail{
+  font-size: 1rem;
+  color: grey;
+}
+
+.social ul{
+  list-style-type: none;
+}
+
+.social ul li{
+  display: inline;
+  padding:  1%;
+}
+
+@media only screen and (max-width:768px){
+  .logo{
+    width: 80%;
+    float: none;
+    margin: 1px auto;
+  }
+
+  .menu ul{
+    text-align: center;
+  }
+
+  .food-search{
+    padding: 10%;
+  }
+
+  .food-search input[type="search"]{
+    width: 90%;
+    padding: 2%;
+    margin-bottom: 3%;
+  }
+
+  .btn{
+    width: 91%;
+    padding: 2%;
+  }
+
+  .categories{
+    padding: 20% 0;
+  }
+
+  h2{
+    margin-bottom: 10%;
+  }
+
+  .box-3{
+    width: 90%;
+    margin: 4% auto;
+  }
+
+  .food-menu{
+    padding: 20% 0;
+  }
+
+  .food-menu-box{
+    width: 90%;
+    padding: 5%;
+    margin-bottom: 5%;
+  }
+
+  .social{
+    padding: 5% 0;
+  }
 }
