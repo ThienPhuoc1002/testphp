@@ -1,88 +1,81 @@
-  <?php include('partials-front/menu.php'); ?>
+<?php include('partials-front/menu.php'); ?>
 
-  <section class="food-search text-center">
-      <div class="container">
-        <form action="">
-          <input type="search" name="search" placeholder="Search for food..">
-          <input type="submit" name="submit" value="Search" class="btn btn-primary">
-        </form>
-      </div>
-  </section>
+<?php
+  if(isset($_GET['category_id']))
+  {
+    $category_id = $_GET['category_id'];
+    $sql = "SELECT name FROM tbl_categories WHERE id = $category_id";
+    $res = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($res);
+    $category_name = $row['name'];
+  }
+  else
+  {
+    header('location:'.SITEURL);
+  }
+?>
 
-  <section class="categories">
-      <div class="container">
-        <h2 class="text-center">Explore Foods</h2>  
+<section class="food-search text-center">
+    <div class="container">
+      <h2>Foods on <a href="" class="text-white"><?php echo $category_name; ?></a></h2>
+    </div>
+</section>
 
-        <div class="box-3 float-container">
-          <img src="./media/pizza.jpeg" alt="" class="img-responsive img-curve">
 
-          <h3 class="float-text text-white">Pizza</h3>
-        </div>
+<section class="food-menu">
+    <div class="container">
+      <h2 class="text-center">Food Menu</h2>  
 
-        <div class="box-3 float-container">
-          <img src="./media/pizza.jpeg" alt="" class="img-responsive img-curve">
+      <?php
+        $sql = "SELECT * FROM tbl_foods WHERE category_id = $category_id";
+        $res = mysqli_query($conn, $sql);
+        $count = mysqli_num_rows($res);
+        if($count>0)
+        {
+          while($row=mysqli_fetch_assoc($res))
+          {
+            $id = $row['id'];
+            $name = $row['name'];
+            $price = $row['price'];
+            $image = $row['image'];
+            ?>
+            
+            <div class="food-menu-box">
+              <div class="food-menu-img">
+                <?php
+                  if($image=="")
+                  {
+                    echo "<div class='error'>Image not available</div>";
+                  }
+                  else
+                  {
+                    ?>
+                    <img src="<?php echo SITEURL; ?>media/<?php echo $image; ?>" class="img-responsive img-curve">
+                    <?php
+                  }
+                ?>
+              </div>
 
-          <h3 class="float-text text-white">Pizza</h3>
-        </div>
+              <div class="food-menu-desc">
+                <h4><?php echo $name; ?></h4>
+                <p class="food-price"><?php echo $price; ?></p>
+                <p class="food-detail">Description</p>
+                <br>
+                <a href="" class="btn btn-primary">Order</a>
+              </div>
+            </div>
 
-        <div class="box-3 float-container">
-          <img src="./media/pizza.jpeg" alt="" class="img-responsive img-curve">
+            <?php
+          }
+        }
+        else
+        {
+          echo "<div class='error text-center'>Food not available</div>";
+        }
+      ?>
 
-          <h3 class="float-text text-white">Pizza</h3>
-        </div>
+      <div class="clearfix"></div>
+    </div>
+</section>
 
-        <div class="clearfix"></div>
-      </div>
-  </section>
-
-  <section class="food-menu">
-      <div class="container">
-        <h2 class="text-center">Food Menu</h2>  
-
-        <div class="food-menu-box">
-          <div class="food-menu-img">
-            <img src="./media/pizza.jpeg" alt="" class="img-responsive img-curve">
-          </div>
-
-          <div class="food-menu-desc">
-            <h4>foodtitle</h4>
-            <p class="food-price">3000d</p>
-            <p class="food-detail">Description</p>
-            <br>
-            <a href="" class="btn btn-primary">Order</a>
-          </div>
-        </div>
-
-        <div class="food-menu-box">
-          <div class="food-menu-img">
-            <img src="./media/pizza.jpeg" alt="" class="img-responsive img-curve">
-          </div>
-
-          <div class="food-menu-desc">
-            <h4>foodtitle</h4>
-            <p class="food-price">3000d</p>
-            <p class="food-detail">Description</p>
-            <br>
-            <a href="" class="btn btn-primary">Order</a>
-          </div>
-        </div>
-
-        <div class="food-menu-box">
-          <div class="food-menu-img">
-            <img src="./media/pizza.jpeg" alt="" class="img-responsive img-curve">
-          </div>
-
-          <div class="food-menu-desc">
-            <h4>foodtitle</h4>
-            <p class="food-price">3000d</p>
-            <p class="food-detail">Description</p>
-            <br>
-            <a href="" class="btn btn-primary">Order</a>
-          </div>
-        </div>
-
-        <div class="clearfix"></div>
-      </div>
-  </section>
-
-  <?php include('partials-front/footer.php'); ?>
+<?php include('partials-front/footer.php'); ?>
