@@ -18,6 +18,14 @@
   border-radius: 15px;
 }
 
+.success{
+  color: #2ed573;
+}
+
+.error{
+  color: #ff4757;
+}
+
 .text-center{
   text-align: center;
 }
