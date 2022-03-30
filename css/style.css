@@ -19,11 +19,13 @@
 }
 
 .success{
-  color: #2ed573;
+  color: green;
+  padding: 2%;
 }
 
 .error{
-  color: #ff4757;
+  padding: 2%;
+  color: red;
 }
 
 .text-center{
